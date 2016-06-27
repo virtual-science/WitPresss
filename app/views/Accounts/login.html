@@ -1,0 +1,41 @@
+#{extends 'main.html' /} #{set title:'Witpress Login' /}
+
+<nav class="ui inverted teal menu">
+	<a class=" active item" href="/signup">WitPress</a>
+        </nav>
+
+<div class="ui green segments">
+<div class = "ui green segment">
+<p> </p>
+
+<div class = "ui green segments">
+<div class = "ui green segment">
+<nav class="ui inverted green menu">
+	<a class=" active item" href="/signup"><h1> Get Started - sign up here</h1>></a>
+        </nav>
+
+</div>
+</div>
+
+
+<div class = "ui green segment">
+
+
+<h3> If already registered log in and begin publishing. </h3>
+					
+			<section class="ui form segment">
+				<form action="/authenticate" method="POST">
+					<div class="field">
+						<label> Email: </label> <input type="text" name="email">
+					</div>
+					<div class="field">
+						<label> Password: </label> <input type="password" name="password">
+					</div>
+					<button class="ui green submit button">Login</button>
+				</form>
+			</section>
+		</div>
+	</div>
+</div>
+
+
