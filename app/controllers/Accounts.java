@@ -8,9 +8,9 @@ import java.util.*;
 import models.*;
 
 public class Accounts extends Controller {
-	public static void login() {
+	public static void signup() {
 		render();
-	}
+		}
 
 	public static void register(User user, boolean terms) {
 		Logger.info(user.firstName + " " + user.lastName + " " + user.email + " " + user.password);
@@ -22,12 +22,11 @@ public class Accounts extends Controller {
 		}
 	}
 
-	
-	public static void signup() {
+	public static void login() {
 		render();
+	
 	}
 	
-
 	public static void authenticate(String email, String password) {
 		Logger.info("Attempting to authenticate with " + email + ":" + password);
 
@@ -35,12 +34,17 @@ public class Accounts extends Controller {
 		if ((user != null) && (user.checkPassword(password) == true)) {
 			Logger.info("Successfully authentication of " + user.firstName);
 			session.put("logged_in_userid", user.id);
-			signup();
+			Blog();
 		} else {
 			Logger.info("Authentication failed");
 			login();
 		}
 
+	}
+
+	private static void Blog() {
+		render("/Blog/blog");
+		
 	}
 
 	public static User getCurrentUser() {
