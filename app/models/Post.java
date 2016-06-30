@@ -1,37 +1,33 @@
 package models;
-
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import play.db.jpa.Blob;
+import javax.persistence.Lob;
 import play.db.jpa.Model;
-import play.Logger;
+import java.util.List;
 
 @Entity
-public class Post extends Model {
+public class Post extends Model
+{
+  public String title;
+  @Lob
+  public String content;
 
-	public int ID;
-	public String content;
-	public String title;
-	
-	public Post(int ID, String content, String title) {
+  @OneToMany (cascade=CascadeType.ALL)
+  public List<Comment> comments;
 
-		this.ID = ID;
-		this.content = content;
-		this.title = title;
-		
-	}
+  public Post(String title, String content)
+  {
+    this.title = title;
+    this.content = content;
+  }
 
-	public static User findByEmail(String email) {
-		return find("email", email).first();
-	}
+  public void addComment(Comment comment) {
+   comments.add(comment);
+  }
 
-	//public boolean checkPassword(String password) {
-	//	return this.password.equals(password);
-	//}
-
+  public String toString()
+  {
+    return title;
+  } 
 }

@@ -10,7 +10,7 @@ import models.*;
 public class Accounts extends Controller {
 	public static void signup() {
 		render();
-		}
+	}
 
 	public static void register(User user, boolean terms) {
 		Logger.info(user.firstName + " " + user.lastName + " " + user.email + " " + user.password);
@@ -24,9 +24,9 @@ public class Accounts extends Controller {
 
 	public static void login() {
 		render();
-	
+
 	}
-	
+
 	public static void authenticate(String email, String password) {
 		Logger.info("Attempting to authenticate with " + email + ":" + password);
 
@@ -34,7 +34,7 @@ public class Accounts extends Controller {
 		if ((user != null) && (user.checkPassword(password) == true)) {
 			Logger.info("Successfully authentication of " + user.firstName);
 			session.put("logged_in_userid", user.id);
-			Blog();
+			Blog.index();
 		} else {
 			Logger.info("Authentication failed");
 			login();
@@ -42,9 +42,9 @@ public class Accounts extends Controller {
 
 	}
 
-	private static void Blog() {
-		render("/Blog/blog");
-		
+	public static void Blog() {
+		render("/Blog/index");
+
 	}
 
 	public static User getCurrentUser() {
@@ -56,5 +56,8 @@ public class Accounts extends Controller {
 		Logger.info("In Accounts controller: Logged in user is " + logged_in_user.firstName);
 		return logged_in_user;
 	}
+
+	
+	
 
 }

@@ -7,14 +7,17 @@ import play.db.jpa.Blob;
 import play.jobs.*;
 import play.libs.MimeTypes;
 import play.test.*;
+import play.jobs.*;
+
  
 @OnApplicationStart
 public class Bootstrap extends Job 
-{ 
-  public void doJob() {
-	  
-	  
-    Fixtures.deleteDatabase();
-    Fixtures.loadModels("data.yml");
-   }
+{
+	public void doJob()
+	  {
+    if (User.count() == 0)
+    {
+     Fixtures.loadModels("data.yml");
+    }
+  }
 }

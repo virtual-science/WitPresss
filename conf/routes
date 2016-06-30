@@ -13,6 +13,9 @@ GET     /logout                                 Accounts.logout
 POST    /authenticate                           Accounts.authenticate
 POST    /register                               Accounts.register
 
+# Blog Controller and View
+Get      /blog                                  Blog.index
+POST     /blog/newPost                          Blog.newPost
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
