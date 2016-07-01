@@ -14,8 +14,16 @@ POST    /authenticate                           Accounts.authenticate
 POST    /register                               Accounts.register
 
 # Blog Controller and View
-Get      /blog                                  Blog.index
+GET      /blog                                  Blog.index
+GET      /publicblogdirectory                   PublicBlogDirectory.index
+
 POST     /blog/newPost                          Blog.newPost
+
+# About page
+GET     /about                                  About.index
+
+# Contact page
+GET     /contact                                Contact.index
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

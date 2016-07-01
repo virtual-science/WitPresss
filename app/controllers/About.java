@@ -3,10 +3,10 @@ package controllers;
 import play.mvc.*;
 
 
-public  class  Contact  extends  Controller
+public  class  About  extends  Controller
  {
    public  static  void  index ()
    {
-    render();
+    render("About/index.html");
   }
 }

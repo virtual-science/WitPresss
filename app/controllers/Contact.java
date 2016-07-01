@@ -7,6 +7,6 @@ public  class  Contact  extends  Controller
  {
    public  static  void  index ()
    {
-    render();
+    render("Contact/index.html");
   }
 }

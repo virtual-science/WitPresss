@@ -26,6 +26,11 @@ public class Accounts extends Controller {
 		render();
 
 	}
+	
+	public static void logout() {
+		session.clear();
+		Accounts.login();
+	}
 
 	public static void authenticate(String email, String password) {
 		Logger.info("Attempting to authenticate with " + email + ":" + password);
